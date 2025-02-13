@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainViaje {
+
     //Marta Jumilla Antón
 
     private static void modificarViaje(Viaje viaje) {
@@ -29,7 +30,8 @@ public class MainViaje {
                 if (viaje.validarCodViaje() && viaje.validarLugarViaje() && viaje.validarCodCole()) {
                     datosValidos = true;
                 } else {
-                    System.out.println("Datos inválidos.");
+                    System.out.println("Datos inválidos");
+                    datosValidos = false;
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
@@ -38,26 +40,47 @@ public class MainViaje {
         }
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         ArrayList<Viaje> viajes = new ArrayList<>();
-        try {
-            viajes.add(new Viaje(1, "Roma", 101));
-            viajes.add(new Viaje(2, "Paris", 104));
-            viajes.add(new Viaje(3, "Santiago", 103));
-            viajes.add(new Viaje(4, "Matola", 106));
-            viajes.add(new Viaje(5, "Tabarca", 105));
+        Scanner sc = new Scanner(System.in);
+        boolean continuar = true;
 
-            for (Viaje viaje : viajes) {
+        try {
+            while (continuar) {
+                System.out.print("Introduce el código del viaje (o -1 para terminar): ");
+                int codViaje = sc.nextInt();
+                sc.nextLine();
+
+                if (codViaje == -1) {
+                    continuar = false;
+                }
+
+                System.out.print("Introduce el lugar del viaje: ");
+                String lugarViaje = sc.nextLine();
+
+                System.out.print("Introduce el código del colegio que realiza el viaje: ");
+                int codCole = sc.nextInt();
+                sc.nextLine();
+
+                Viaje viaje = new Viaje(codViaje, lugarViaje, codCole);
+
                 if (viaje.validarCodViaje() && viaje.validarLugarViaje() && viaje.validarCodCole()) {
+                    viajes.add(viaje);
                     System.out.println("Viaje creado: " + viaje);
                 } else {
                     System.out.println("Datos inválidos de: " + viaje);
                     modificarViaje(viaje);
+                    viajes.add(viaje);
                     System.out.println("Viaje modificado: " + viaje);
                 }
             }
+
+            System.out.println("Lista de viajes:");
+            for (Viaje viaje : viajes) {
+                System.out.println(viaje);
+            }
         } catch (Exception e) {
-            System.out.println("Error general: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
