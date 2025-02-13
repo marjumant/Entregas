@@ -1,4 +1,5 @@
 public class Viaje {
+
     //Marta Jumilla Antón
 
     private int codViaje;
@@ -36,7 +37,7 @@ public class Viaje {
     }
 
     public boolean validarCodViaje() {
-        if (codViaje > 0){
+        if (codViaje > 0) {
             return true;
         } else {
             return false;
@@ -44,11 +45,10 @@ public class Viaje {
     }
 
     public boolean validarLugarViaje() {
-        if (lugarViaje != null && !lugarViaje.isEmpty()) {
+        if (lugarViaje.length() <= 30) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean validarCodCole() {
