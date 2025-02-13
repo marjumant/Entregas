@@ -1,10 +1,11 @@
-public class Ciudades {
+public class Ciudad {
+
     //Marta Jumilla Antón
 
     private int codciudad;
     private String nomciudad;
 
-    public Ciudades(int codciudad, String nomciudad) {
+    public Ciudad(int codciudad, String nomciudad) {
         this.codciudad = codciudad;
         this.nomciudad = nomciudad;
     }
@@ -26,19 +27,12 @@ public class Ciudades {
     }
 
     public boolean validarCodciudad() {
-        if (codciudad > 0){
-            return true;
-        } else {
-            return false;
-        }
+        return codciudad > 0;
     }
 
     public boolean validarNomciudad() {
-        if (nomciudad.matches("^[a-zA-Z\\s]+$")) {
-            return true;
-        } else {
-            return false;
-        }
+        return nomciudad != null &&
+                nomciudad.matches("^[a-zA-Z]{1,30}$");
     }
 
     @Override
