@@ -65,4 +65,16 @@ public class ArrayDeViaje {
             System.out.println(viaje);
         }
     }
+
+    public void XML() {
+        for (Viaje viaje : viajes) {
+            System.out.println("\n<Viaje>" +
+                               "\n   <codViaje>" + viaje.getCodViaje() + "</codViaje>" +
+                               "\n   <lugarViaje>" + viaje.getLugarViaje() + "</lugarViaje>" +
+                               "\n   <codCole>" + viaje.getCodCole() + "</codCole>" +
+                               "\n</Viaje>");
+        }
+    }
+}
+    }
 }
