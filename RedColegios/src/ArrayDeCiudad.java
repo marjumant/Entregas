@@ -69,4 +69,13 @@ public class ArrayDeCiudad {
             System.out.println(ciudad);
         }
     }
+
+    public void XML() {
+        for (Ciudad ciudad : ciudades) {
+            System.out.println("\n<Ciudades>" +
+                               "\n   <codciudad>" + ciudad.getCodciudad() + "</codciudad>" +
+                               "\n   <nomciudad>" + ciudad.getNomciudad() + "</nomciudad>" +
+                               "\n</Ciudades>");
+        }
+    }
 }
