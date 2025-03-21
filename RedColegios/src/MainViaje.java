@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Scanner;
 
 public class MainViaje {
 
@@ -51,7 +52,8 @@ public class MainViaje {
                     2. Eliminar Viaje
                     3. Actualizar Viaje
                     4. Consultar Viaje
-                    5. Imprimir Viajes""");
+                    5. Imprimir Viajes
+                    6. Imprimir XML""");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -129,6 +131,11 @@ public class MainViaje {
                 case 5:
                     System.out.println("\n-------- Imprimir Viajes --------");
                     arrayDeViaje.printViajes();
+                    break;
+
+                case 6:
+                    System.out.println("\n-------- Imprimir XML --------");
+                    arrayDeViaje.XML();
                     break;
 
                 case 0:
