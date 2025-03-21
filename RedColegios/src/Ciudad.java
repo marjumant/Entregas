@@ -42,4 +42,11 @@ public class Ciudad {
                 ", nomciudad='" + nomciudad + '\'' +
                 '}';
     }
+
+    public String XML() {
+        return "<Ciudades>" +
+                "    <codciudad>" + codciudad + "</codciudad>" +
+                "    <nomciudad>" + nomciudad + "</nomciudad>" +
+               "</Ciudades>";
+    }
 }
