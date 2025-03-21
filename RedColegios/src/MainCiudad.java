@@ -47,7 +47,8 @@ public class MainCiudad {
                     2. Eliminar Ciudad
                     3. Actualizar Ciudad
                     4. Consultar Ciudad
-                    5. Imprimir Ciudades""");
+                    5. Imprimir Ciudades
+                    6. Imprimir XML""");
 
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
@@ -124,6 +125,11 @@ public class MainCiudad {
                 case 5:
                     System.out.println("\n-------- Imprimir Ciudades --------");
                     arrayDeCiudad.printCiudades();
+                    break;
+
+                case 6:
+                    System.out.println("\n-------- Imprimir XML --------");
+                    arrayDeCiudad.XML();
                     break;
 
                 case 0:
