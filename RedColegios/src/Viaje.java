@@ -67,4 +67,12 @@ public class Viaje {
                 ", codCole=" + codCole +
                 '}';
     }
+
+    public String XML() {
+        return "<Viaje>" +
+                "    <codviaje>" + codviaje + "</codviaje>" +
+                "    <lugarviaje>" + lugarviaje + "</lugarviaje>" +
+                "    <codcole>" + codcole + "</codcole>" +
+                "</Viaje>";
+    }
 }
