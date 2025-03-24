@@ -10,8 +10,8 @@ class PinturaTest {
         Cilindro cilindro = new Cilindro("cilindro", 4, 7);
         Pintura pintura = new Pintura(80);
 
-        assertEquals(35.341, pintura.pinturaNecesaria(esfera), 3);
-        assertEquals(4.3982, pintura.pinturaNecesaria(cilindro),3);
-        assertEquals(0.9, pintura.pinturaNecesaria(rectangulo),3);
+        assertEquals(35.341, pintura.pinturaNecesaria(esfera), 0.01);
+        assertEquals(4.3982, pintura.pinturaNecesaria(cilindro),0.01);
+        assertEquals(0.9, pintura.pinturaNecesaria(rectangulo),0.01);
     }
 }
