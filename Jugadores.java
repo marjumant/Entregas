@@ -7,6 +7,8 @@ public class Jugadores {
         ArrayList<String[]> lista = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+            br.readLine();
+            br.readLine();
             String cadena;
             while ((cadena = br.readLine()) != null) {
                 lista.add(cadena.split(";"));
