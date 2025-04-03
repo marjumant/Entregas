@@ -71,11 +71,17 @@ public class ArrayDeCiudad {
     }
 
     public void XML() {
-        for (Ciudad ciudad : ciudades) {
-            System.out.println("\n<Ciudades>" +
-                               "\n   <codciudad>" + ciudad.getCodciudad() + "</codciudad>" +
-                               "\n   <nomciudad>" + ciudad.getNomciudad() + "</nomciudad>" +
-                               "\n</Ciudades>");
+        String filePath = "ciudades.txt"; // Ruta del archivo donde se guardará la información
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Ciudad ciudad : ciudades) {
+                writer.write("\n<Ciudades>" +
+                             "\n   <codciudad>" + ciudad.getCodciudad() + "</codciudad>" +
+                             "\n   <nomciudad>" + ciudad.getNomciudad() + "</nomciudad>" +
+                             "\n</Ciudades>");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
