@@ -66,13 +66,19 @@ public class ArrayDeViaje {
         }
     }
 
-    public void XML() {
-        for (Viaje viaje : viajes) {
-            System.out.println("\n<Viaje>" +
-                               "\n   <codViaje>" + viaje.getCodViaje() + "</codViaje>" +
-                               "\n   <lugarViaje>" + viaje.getLugarViaje() + "</lugarViaje>" +
-                               "\n   <codCole>" + viaje.getCodCole() + "</codCole>" +
-                               "\n</Viaje>");
+     public void XML() {
+        String filePath = "viajes.txt"; // Ruta del archivo donde se guardará la información
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Viaje viaje : viajes) {
+                writer.write("\n<Viaje>" +
+                             "\n   <codViaje>" + viaje.getCodViaje() + "</codViaje>" +
+                             "\n   <lugarViaje>" + viaje.getLugarViaje() + "</lugarViaje>" +
+                             "\n   <codCole>" + viaje.getCodCole() + "</codCole>" +
+                             "\n</Viaje>");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
