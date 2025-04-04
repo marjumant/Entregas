@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ArrayDeCiudad {
@@ -71,14 +74,14 @@ public class ArrayDeCiudad {
     }
 
     public void XML() {
-        String filePath = "ciudades.txt"; // Ruta del archivo donde se guardará la información
+        String filePath = "C:\\Users\\Usuario\\Downloads\\ciudades.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Ciudad ciudad : ciudades) {
-                writer.write("\n<Ciudades>" +
-                             "\n   <codciudad>" + ciudad.getCodciudad() + "</codciudad>" +
-                             "\n   <nomciudad>" + ciudad.getNomciudad() + "</nomciudad>" +
-                             "\n</Ciudades>");
+                writer.write("\n<" + Ciudad.class.getSimpleName() + "es>" +
+                        "\n   <" + ciudad.getClass().getDeclaredFields()[0].getName() + ">" + ciudad.getCodciudad() + "</" + ciudad.getClass().getDeclaredFields()[0].getName() + ">" +
+                        "\n   <" + ciudad.getClass().getDeclaredFields()[1].getName() + ">" + ciudad.getNomciudad() + "</" + ciudad.getClass().getDeclaredFields()[1].getName() + ">" +
+                        "\n   </" + Ciudad.class.getSimpleName() + "es>");
             }
         } catch (IOException e) {
             e.printStackTrace();
