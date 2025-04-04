@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ArrayDeViaje {
@@ -66,16 +69,16 @@ public class ArrayDeViaje {
         }
     }
 
-     public void XML() {
-        String filePath = "viajes.txt"; // Ruta del archivo donde se guardará la información
+    public void XML() {
+        String filePath = "C:\\Users\\Usuario\\Downloads\\viajes.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Viaje viaje : viajes) {
-                writer.write("\n<Viaje>" +
-                             "\n   <codViaje>" + viaje.getCodViaje() + "</codViaje>" +
-                             "\n   <lugarViaje>" + viaje.getLugarViaje() + "</lugarViaje>" +
-                             "\n   <codCole>" + viaje.getCodCole() + "</codCole>" +
-                             "\n</Viaje>");
+                writer.write("\n<" + Viaje.class.getSimpleName() + "es>" +
+                        "\n   <" + viaje.getClass().getDeclaredFields()[0].getName() + ">" + viaje.getCodViaje() + "</" + viaje.getClass().getDeclaredFields()[0].getName() + ">" +
+                        "\n   <" + viaje.getClass().getDeclaredFields()[1].getName() + ">" + viaje.getLugarViaje() + "</" + viaje.getClass().getDeclaredFields()[1].getName() + ">" +
+                        "\n   <" + viaje.getClass().getDeclaredFields()[2].getName() + ">" + viaje.getCodCole() + "</" + viaje.getClass().getDeclaredFields()[2].getName() + ">" +
+                        "\n</" + Ciudad.class.getSimpleName() + "es>");
             }
         } catch (IOException e) {
             e.printStackTrace();
